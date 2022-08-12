@@ -7,18 +7,18 @@ data_t angles[NO_ITER] = {0.785398163397448,	0.463647609000806,	0.24497866312686
 
 void cordiccart2pol(data_t x, data_t y, data_t * r,  data_t * theta)
 {
-	// Write your code here
-
 	#pragma HLS INTERFACE s_axilite port=x
 	#pragma HLS INTERFACE s_axilite port=y
 	#pragma HLS INTERFACE s_axilite port=r
 	#pragma HLS INTERFACE s_axilite port=theta
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
+	// Code start
 	data_t pi = 1.570796326794896;
 	data_t c_x, c_y;
 	data_t angle;
 
+	// Sign
 	if (y > 0) {
 		// rotate by -90
 		c_x = y;
@@ -31,7 +31,8 @@ void cordiccart2pol(data_t x, data_t y, data_t * r,  data_t * theta)
 		angle = -pi;
 	}
 
-	for (int i = 0; i < NO_ITER; i++) {
+	// Main calculation
+	cordiccart2pol_label0:for (int i = 0; i < NO_ITER; i++) {
 		coef_t signma;
 		if (c_y < 0) {
 			signma = 1;
@@ -41,7 +42,7 @@ void cordiccart2pol(data_t x, data_t y, data_t * r,  data_t * theta)
 		data_t tempX = c_x;
 		c_x = c_x + (-signma) * Kvalues[i] * c_y;
 		c_y = c_y + signma * Kvalues[i] * tempX;
-		angle -= signma * angles[i];
+		angle = angle - signma * angles[i];
 	}
 
 	*r = c_x * (data_t) 0.607;
