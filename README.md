@@ -9,7 +9,7 @@ The following figure is the Design Sources of Vivado project:
 ![image1](https://github.com/MIKEHHQ/XilinxSummerSchoolProject/tree/main/Lab_DSP/Cordic/src/design_sources.png)
 
 The following figure shows the Block Design of the whole systerm of Cordic to Pole:
-![image2](https://github.com/MIKEHHQ/XilinxSummerSchoolProject/tree/main/Lab_DSP/Cordic/src/block_design.png)
+![image2](http://github.com/MIKEHHQ/XilinxSummerSchoolProject/blob/main/Lab_DSP/Cordic/src/block_design.png)
 
 The diagram below looks at the implementation of our algorithm on the chip from the perspective of assigning chip pins.
 ![image3](https://github.com/MIKEHHQ/XilinxSummerSchoolProject/tree/main/Lab_DSP/Cordic/src/package.png)
